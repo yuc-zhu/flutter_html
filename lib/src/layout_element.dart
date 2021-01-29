@@ -49,7 +49,7 @@ class TableLayoutElement extends LayoutElement {
                   return percentageSize != null && !percentageSize.isNaN
                       ? FlexibleTrackSize(percentageSize * 0.01)
                       : FlexibleTrackSize(1);
-                } else if (colWidth != null && !percentageSize.isNaN) {
+                } else if (colWidth != null) {
                   final fixedPxSize = double.tryParse(colWidth);
                   return fixedPxSize != null
                       ? FixedTrackSize(fixedPxSize)
