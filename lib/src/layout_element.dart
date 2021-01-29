@@ -46,10 +46,10 @@ class TableLayoutElement extends LayoutElement {
                 if (colWidth != null && colWidth.endsWith("%")) {
                   final percentageSize = double.tryParse(
                       colWidth.substring(0, colWidth.length - 1));
-                  return percentageSize != null
+                  return percentageSize != null && !percentageSize.isNaN
                       ? FlexibleTrackSize(percentageSize * 0.01)
                       : FlexibleTrackSize(1);
-                } else if (colWidth != null) {
+                } else if (colWidth != null && !percentageSize.isNaN) {
                   final fixedPxSize = double.tryParse(colWidth);
                   return fixedPxSize != null
                       ? FixedTrackSize(fixedPxSize)
